@@ -36,7 +36,7 @@ class IQ : BaseCommand(
 
     private fun calcIQ(): Int {
         val iqDist = NormalDistribution(100.0, 15.0)
-        val randIQ = (50..150).random()
+        val randIQ = (-50..200).random()
         val luck = Math.random()
         val smallo = iqDist.cumulativeProbability(randIQ.toDouble()) < 0.5
         return if (smallo && iqDist.cumulativeProbability(randIQ.toDouble()) > luck || !smallo && iqDist.cumulativeProbability(randIQ.toDouble()) < luck) {
