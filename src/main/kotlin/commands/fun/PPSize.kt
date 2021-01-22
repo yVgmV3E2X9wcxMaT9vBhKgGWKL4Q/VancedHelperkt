@@ -11,7 +11,7 @@ class PPSize : BaseCommand(
     commandName = "ppsize",
     commandDescription = "Calculate PP size",
     commandType = Fun,
-    commandAliases = listOf("pp", "coce"),
+    commandAliases = listOf("pp", "coce", "d"),
     commandArguments = mapOf("The thing".optional())
 ) {
 
@@ -40,7 +40,7 @@ class PPSize : BaseCommand(
 
     private fun calcPP(): Int {
         val ppDist = NormalDistribution(6.0, 1.0)
-        val randPP = (2..14).random()
+        val randPP = (2..15).random()
         val luck = Math.random()
         val smallo = ppDist.cumulativeProbability(randPP.toDouble()) < 0.5
         return if (smallo && ppDist.cumulativeProbability(randPP.toDouble()) > luck || !smallo && ppDist.cumulativeProbability(randPP.toDouble()) < luck) {
